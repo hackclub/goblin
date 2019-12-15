@@ -4,10 +4,12 @@ Goblin is a Slack bot that integrates with Hack Club Bank 🐲
 
 ## Commands
 
-- `/goblin hello`: Make some witty comment
-- `/goblin stats`: Reports HCB stats
-- `/goblin apply`: Apply to Hack Club Bank!
-- `/goblin faq`: Go to the FAQ page.
+- `@goblin help`: Display help text.
+- `@goblin hello`: Make some witty comment about money in the cloud.
+- `@goblin stats`: Reports HCB stats.
+- `@goblin apply`: Apply to Hack Club Bank! Shows the application link.
+- `@goblin faq`: Shows a link to the FAQ page.
+- `@goblinn bug`: Report a bug! Redirects user to the #bank-counter channel.
 
 ## Build
 

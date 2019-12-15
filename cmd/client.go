@@ -1,7 +1,6 @@
 package main
 
 import (
-	"strings"
 	"time"
 )
 
@@ -12,12 +11,19 @@ type Client struct {
 }
 
 func NewClient() *Client {
-	return &Client{
+	c := &Client{
 		startedAt: time.Now(),
 		Commands: []Command{
+			HelloCommand{},
 			StatsCommand{},
 		},
 	}
+
+	for _, cmd := range c.Commands {
+		cmd.Init()
+	}
+
+	return c
 }
 
 func (c Client) Uptime() time.Duration {
@@ -26,8 +32,7 @@ func (c Client) Uptime() time.Duration {
 
 func (c Client) Respond(msg string) string {
 	for _, cmd := range c.Commands {
-		lower := strings.ToLower(msg)
-		if strings.Contains(lower, cmd.Name()) {
+		if cmd.ShouldRespond(msg) {
 			return cmd.Respond(msg)
 		}
 	}

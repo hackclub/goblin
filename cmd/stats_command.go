@@ -44,8 +44,10 @@ func RenderMoney(amount int64) string {
 // Hack Club Bank statistics.
 type StatsCommand struct{}
 
-func (cmd StatsCommand) Name() string {
-	return "stats"
+func (cmd StatsCommand) Init() {}
+
+func (cmd StatsCommand) ShouldRespond(msg string) bool {
+	return strings.Contains(strings.ToLower(msg), "stats")
 }
 
 func (cmd StatsCommand) Respond(msg string) string {
