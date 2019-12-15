@@ -4,9 +4,12 @@ import (
 	"time"
 )
 
+// Client represents a Goblin bot instance, that'll handle
+// all incoming messages.
 type Client struct {
 	startedAt time.Time
 
+	// Commands is a list of registered Goblin commands
 	Commands []Command
 }
 
@@ -19,6 +22,7 @@ func NewClient() *Client {
 			ApplyCoommand{},
 			FaqCommand{},
 			BugCommand{},
+			// Add new commands here
 		},
 	}
 
