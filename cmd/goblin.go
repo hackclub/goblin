@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/nlopes/slack"
 )
+
+const GoblinUserID = "@URQ51A2P7"
 
 func main() {
 	fmt.Println("Waking up Goblin...")
@@ -38,11 +41,13 @@ func main() {
 			fmt.Printf("Message: %v\n", ev)
 			msg := ev
 
-			outMsg := rtm.NewOutgoingMessage(
-				goblin.Respond(msg.Text),
-				msg.Channel,
-			)
-			rtm.SendMessage(outMsg)
+			if strings.Contains(msg.Text, GoblinUserID) {
+				outMsg := rtm.NewOutgoingMessage(
+					goblin.Respond(msg.Text),
+					msg.Channel,
+				)
+				rtm.SendMessage(outMsg)
+			}
 
 		case *slack.PresenceChangeEvent:
 			fmt.Printf("Presence Change: %v\n", ev)
