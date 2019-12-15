@@ -10,7 +10,7 @@ Environment="GOBLIN_TOKEN=your api token"
 
 Restart=on-failure
 RestartSec=10
-startLimitIntervalSec=60
+StartLimitIntervalSec=60
 
 WorkingDirectory=/home/goblin/
 ExecStart=/home/goblin/goblin
