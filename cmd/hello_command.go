@@ -17,7 +17,6 @@ func (cmd HelloCommand) Init() {
 func (cmd HelloCommand) ShouldRespond(msg string) bool {
 	hellos := []string{
 		"hello",
-		"hi",
 		"hey",
 	}
 

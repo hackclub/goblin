@@ -15,7 +15,6 @@ func NewClient() *Client {
 		startedAt: time.Now(),
 		Commands: []Command{
 			HelpCommand{},
-			HelloCommand{},
 			StatsCommand{},
 			ApplyCoommand{},
 			FaqCommand{},
@@ -41,5 +40,5 @@ func (c Client) Respond(msg string) string {
 		}
 	}
 
-	return "Gobble gobble! Not sure what that means..."
+	return HelloCommand{}.Respond(msg)
 }
