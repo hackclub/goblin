@@ -17,9 +17,13 @@ func main() {
 		log.Fatalf("GOBLIN_TOKEN not found!")
 	}
 
+	// init Slack connection
 	api := slack.New(goblinToken)
 	rtm := api.NewRTM()
 	go rtm.ManageConnection()
+
+	// init Goblin instance
+	goblin := NewClient()
 
 	for msg := range rtm.IncomingEvents {
 		fmt.Print("Event Received: ")
@@ -34,12 +38,8 @@ func main() {
 			fmt.Printf("Message: %v\n", ev)
 			msg := ev
 
-			if msg.Edited != nil {
-				break
-			}
-
 			outMsg := rtm.NewOutgoingMessage(
-				"Goblin response!",
+				goblin.Respond(msg.Text),
 				msg.Channel,
 			)
 			rtm.SendMessage(outMsg)
