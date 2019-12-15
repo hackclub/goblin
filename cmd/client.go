@@ -14,8 +14,12 @@ func NewClient() *Client {
 	c := &Client{
 		startedAt: time.Now(),
 		Commands: []Command{
+			HelpCommand{},
 			HelloCommand{},
 			StatsCommand{},
+			ApplyCoommand{},
+			FaqCommand{},
+			BugCommand{},
 		},
 	}
 
