@@ -13,7 +13,6 @@ Goblin is a Slack bot that integrates with Hack Club Bank 🐲
 
 ## Build
 
-⚠️
 ⚠️_Currently, there's a bug in goblin's dependency nlopes/slack caused by Slack releasing an API update
 that contains a new `rich_text` field after their rich text editor rollout. Until the mainline of the
 slack Go library fixes this, build goblin with_
@@ -23,7 +22,6 @@ go get -u github.com/nlopes/slack@d06c2a2b3249b44a9c5dee8485f5a87497beb9ea
 ```
 
 _...to build with a version of nlopes/slack that works with the new rich text API._
-⚠️
 
 Build with `go build cmd/goblin.go`.
 
