@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 User=goblin
 LimitNOFILE=1024
+Environment="GOBLIN_TOKEN=your api token"
 
 Restart=on-failure
 RestartSec=10

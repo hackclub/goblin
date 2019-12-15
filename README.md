@@ -27,7 +27,16 @@ Build with `go build cmd/goblin.go`.
 
 Run with `./goblin`. Goblin should automatically connect to Slack and start handling messages!
 
-### Add a command
+## Deploy
+
+We deploy goblin as a systemd service on Linux:
+
+1. Create a new user `goblin` on Linux with `sudo adduser goblin`
+2. Build the executable and place it at `/home/goblin/goblin`
+3. Copy over the systemd service file `goblin.service` to `/etc/systemd/system/goblin.service` and replace the `your api token` with your Slack API Bot OAuth token
+4. Start the service with `sudo systemctl start goblin`
+
+## Add a command
 
 To add a new command to Goblin:
 
