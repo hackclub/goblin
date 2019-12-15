@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/hackclub/goblin/pkg/goblin"
 	"github.com/nlopes/slack"
 )
 
@@ -26,7 +27,7 @@ func main() {
 	go rtm.ManageConnection()
 
 	// init Goblin instance
-	goblin := NewClient()
+	client := goblin.NewClient()
 
 	for msg := range rtm.IncomingEvents {
 		fmt.Print("Event Received: ")
@@ -43,7 +44,7 @@ func main() {
 
 			if strings.Contains(msg.Text, GoblinUserID) {
 				outMsg := rtm.NewOutgoingMessage(
-					goblin.Respond(msg.Text),
+					client.Respond(msg.Text),
 					msg.Channel,
 				)
 				rtm.SendMessage(outMsg)
