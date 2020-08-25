@@ -1,3 +1,7 @@
+> 2020-08-25: Goblin is no longer being maintained, supported, or developed by Hack Club HQ.
+
+***
+ 
 # Goblin
 
 Goblin is a Slack bot that integrates with Hack Club Bank 🐲
